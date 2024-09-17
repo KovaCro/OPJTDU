@@ -28,7 +28,7 @@ class KANLinear(torch.nn.Module):
             bases = ((x - grid[:, : -(p + 1)])/(grid[:, p:-1] - grid[:, : -(p + 1)])*bases[:, :, :-1]) + ((grid[:, p + 1 :] - x)/(grid[:, p + 1 :] - grid[:, 1:(-p)])* bases[:, :, 1:])
         return bases.contiguous()
 
-    def forward(self, x: torch.Tensor):
+    def forward(self, x):
         tmp = x.shape
         x = x.reshape(-1, self.in_features)
         base_activation = torch.nn.SiLU()
