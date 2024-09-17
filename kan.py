@@ -65,7 +65,7 @@ class KAN(torch.nn.Module):
                 )
             )
 
-    def forward(self, x: torch.Tensor):
+    def forward(self, x):
         for layer in self.layers:
             x = layer(x)
         return x
